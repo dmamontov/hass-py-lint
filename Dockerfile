@@ -1,8 +1,8 @@
-FROM python:3.10-alpine3.15
+FROM python:3.10-slim-buster
 
 LABEL maintainer="d.slonyara@gmail.com"
 
-RUN apk add --no-cache \
+RUN apt-get update && apt-get -y --no-install-recommends install \
     gcc \
     build-essential \
     libssl-dev \
