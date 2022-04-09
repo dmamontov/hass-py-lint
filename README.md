@@ -19,7 +19,7 @@ Basic:
 ```yml
 steps:
   - uses: actions/checkout@v2
-  - uses: dmamontov/hass-py-lint@master
+  - uses: dmamontov/hass-py-lint@main
 ```
 
 Options:
@@ -27,7 +27,7 @@ Options:
 ```yml
 steps:
   - uses: actions/checkout@v2
-  - uses: dmamontov/hass-py-lint@master
+  - uses: dmamontov/hass-py-lint@main
     with:
       hass-version: ">=2022.3.0"
       path: "custom_components/my_component"

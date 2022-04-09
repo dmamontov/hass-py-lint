@@ -9,6 +9,6 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v2
-      - uses: dmamontov/hass-py-lint@master
+      - uses: dmamontov/hass-py-lint@main
         with:
           path: "tests"
