@@ -3,7 +3,11 @@ FROM python:3.10-alpine3.15
 LABEL maintainer="d.slonyara@gmail.com"
 
 RUN apk add --no-cache \
-    gcc
+    gcc \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    python-dev
 
 RUN pip3 install pylint \
     black \
