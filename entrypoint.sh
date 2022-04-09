@@ -15,9 +15,9 @@ pip3 install "homeassistant${1}" --no-cache-dir
 
 if [ "$3" = true ] ; then
 
-    echo Running: pylint $6 $2
+    echo Running: pylint --disable=duplicate-code --disable=too-many-instance-attributes $6 $2
 
-    pylint $6 $2
+    pylint --disable=duplicate-code --disable=too-many-instance-attributes $6 $2
     exit_code=$?
 
     if [ "$exit_code" = "0" ]; then
@@ -47,7 +47,7 @@ fi
 
 if [ "$5" = true ] ; then
 
-    echo Running: mypy $8 $2
+    echo Running: mypy --show-error-codes --show-error-context --ignore-missing-imports --pretty --show-error-codes $8 $2
 
     mypy --show-error-codes --show-error-context --ignore-missing-imports --pretty --show-error-codes $8 $2
     exit_code=$?

@@ -44,9 +44,9 @@ Command build logic list:
 ```bash
 pip3 install homeassistant$(hass-version)
 
-pylint $(extra-pylint-options) $(path)
+pylint --disable=duplicate-code --disable=too-many-instance-attributes $(extra-pylint-options) $(path)
 
 black --check $(extra-black-options) $(path)
 
-mypy $(extra-mypy-options) $(path)
+mypy --show-error-codes --show-error-context --ignore-missing-imports --pretty --show-error-codes $(extra-mypy-options) $(path)
 ```
