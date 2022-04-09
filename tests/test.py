@@ -12,7 +12,7 @@ def get_name_len(name: str) -> int:
 
 
 def start() -> None:
-    """Run ... """
+    """Run ..."""
 
     print(Platform.SELECT.value)
     print(uuid.uuid4().hex)

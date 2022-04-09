@@ -49,7 +49,7 @@ if [ "$5" = true ] ; then
 
     echo Running: mypy $8 $2
 
-    mypy $8 $2
+    mypy --show-error-codes --show-error-context --ignore-missing-imports --pretty --show-error-codes $8 $2
     exit_code=$?
 
     if [ "$exit_code" = "0" ]; then
