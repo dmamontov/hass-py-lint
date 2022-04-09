@@ -1,0 +1,51 @@
+name: "Python Code Quality and Lint for Home Assistant components"
+description: "Supports pylint, black, mypy"
+inputs:
+  hass-version:
+    description: "Home Assistant version"
+    required: false
+    default: ">=2022.3.0"
+  path:
+    description: "Component path"
+    required: false
+    default: "."
+  use-pylint:
+    description: "Use Pylint"
+    required: false
+    default: true
+  use-black:
+    description: "Use Black"
+    required: false
+    default: true
+  use-mypy:
+    description: "Use mypy"
+    required: false
+    default: true
+  extra-pylint-options:
+    description: "Extra options: pylint $(extra-pylint-options) $(path)"
+    required: false
+    default: ""
+  extra-black-options:
+    description: "Extra options: black --check $(extra-black-options) $(path)"
+    required: false
+    default: ""
+  extra-mypy-options:
+    description: "Extra options: mypy $(extra-mypy-options) $(path)"
+    required: false
+    default: ""
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.hass-version }}
+    - ${{ inputs.path }}
+    - ${{ inputs.use-pylint }}
+    - ${{ inputs.use-black }}
+    - ${{ inputs.use-mypy }}
+    - ${{ inputs.extra-pylint-options }}
+    - ${{ inputs.extra-black-options }}
+    - ${{ inputs.extra-mypy-options }}
+branding:
+  icon: "terminal"
+  color: "blue"
