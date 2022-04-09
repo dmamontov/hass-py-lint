@@ -11,7 +11,7 @@
 # $7 - extra-black-options
 # $8 - extra-mypy-options
 
-pip3 install "homeassistant${1}"
+pip3 install "homeassistant${1}" --no-cache-dir
 
 if [ "$3" = true ] ; then
 
