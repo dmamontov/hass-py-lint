@@ -1,4 +1,13 @@
-FROM ricardobchaves6/python-lint-image:1.4.0
+FROM python:3.10.0-alpine3.10
+
+LABEL maintainer="d.slonyara@gmail.com"
+
+RUN apk add --no-cache \
+    gcc
+
+RUN pip3 install pylint \
+    black \
+    mypy
 
 COPY entrypoint.sh /entrypoint.sh
 
