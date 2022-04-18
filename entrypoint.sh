@@ -13,7 +13,7 @@
 # $9 - use-hass-branch
 
 if [ "$9" = true ]; then
-  pip3 install "git+https://github.com/home-assistant/core.git\@${9}" --no-cache-dir
+  pip3 install "git+https://github.com/home-assistant/core.git\\\@${9}" --no-cache-dir
 else
   pip3 install "homeassistant${1}" --no-cache-dir
 fi
