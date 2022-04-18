@@ -4,6 +4,7 @@ LABEL maintainer="d.slonyara@gmail.com"
 
 RUN apt-get update && apt-get -y --no-install-recommends install \
     gcc \
+    git \
     build-essential \
     libssl-dev \
     libffi-dev \

@@ -33,6 +33,10 @@ inputs:
     description: "Extra options: mypy $(extra-mypy-options) $(path)"
     required: false
     default: ""
+  use-hass-branch:
+    description: "Use branch instead of version"
+    required: false
+    default: false
 
 runs:
   using: "docker"

@@ -37,12 +37,15 @@ steps:
       extra-pylint-options: ""
       extra-black-options: ""
       extra-mypy-options: ""
+      use-hass-branch: false
 ```
 
 Command build logic list:
 
 ```bash
 pip3 install homeassistant$(hass-version)
+#or if ${use-hass-branch}
+pip3 install git+https://github.com/home-assistant/core.git@$(hass-version)
 
 pylint --disable=duplicate-code --disable=too-many-instance-attributes $(extra-pylint-options) $(path)
 

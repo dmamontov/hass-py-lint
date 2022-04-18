@@ -10,10 +10,15 @@
 # $6 - extra-pylint-options
 # $7 - extra-black-options
 # $8 - extra-mypy-options
+# $9 - use-hass-branch
 
-pip3 install "homeassistant${1}" --no-cache-dir
+if [ "$9" = true ]; then
+  pip3 install git+https://github.com/home-assistant/core.git@${9} --no-cache-dir
+else
+  pip3 install homeassistant${1} --no-cache-dir
+fi
 
-if [ "$3" = true ] ; then
+if [ "$3" = true ]; then
 
     echo Running: pylint --disable=duplicate-code --disable=too-many-instance-attributes $6 $2
 
@@ -29,7 +34,7 @@ if [ "$3" = true ] ; then
 
 fi
 
-if [ "$4" = true ] ; then
+if [ "$4" = true ]; then
 
     echo Running: black --check $7 $2
 
@@ -45,7 +50,7 @@ if [ "$4" = true ] ; then
 
 fi
 
-if [ "$5" = true ] ; then
+if [ "$5" = true ]; then
 
     echo Running: mypy --show-error-codes --show-error-context --ignore-missing-imports --pretty --show-error-codes $8 $2
 
