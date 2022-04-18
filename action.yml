@@ -3,11 +3,11 @@ description: "Supports pylint, black, mypy"
 inputs:
   hass-version:
     description: "Home Assistant version"
-    required: false
+    required: true
     default: ">=2022.3.0"
   path:
     description: "Component path"
-    required: false
+    required: true
     default: "."
   use-pylint:
     description: "Use Pylint"
@@ -50,6 +50,7 @@ runs:
     - ${{ inputs.extra-pylint-options }}
     - ${{ inputs.extra-black-options }}
     - ${{ inputs.extra-mypy-options }}
+    - ${{ inputs.use-hass-branch }}
 branding:
   icon: "terminal"
   color: "blue"
