@@ -20,6 +20,10 @@ else
   pip3 install homeassistant${1} --no-cache-dir
 fi
 
+if [ -f "requirements_test.txt" ]; then
+    pip3 install -r requirements_test.txt
+fi
+
 if [ "$3" = true ]; then
 
     echo Running: pylint --disable=duplicate-code --disable=too-many-instance-attributes $6 $2
@@ -69,10 +73,6 @@ if [ "$5" = true ]; then
 fi
 
 if [ "${10}" = true ]; then
-
-    if [ -f "requirements_test.txt" ]; then
-        pip3 install -r requirements_test.txt
-    fi
 
     echo Running: pytest -p no:warnings --strict -o log_cli=true ${11}
 
