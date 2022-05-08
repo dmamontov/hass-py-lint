@@ -21,6 +21,10 @@ inputs:
     description: "Use mypy"
     required: false
     default: true
+  use-pytest:
+    description: "Use pytest"
+    required: false
+    default: false
   extra-pylint-options:
     description: "Extra options: pylint $(extra-pylint-options) $(path)"
     required: false
@@ -31,6 +35,10 @@ inputs:
     default: ""
   extra-mypy-options:
     description: "Extra options: mypy $(extra-mypy-options) $(path)"
+    required: false
+    default: ""
+  extra-pytest-options:
+    description: "Extra options: pytest $(extra-pytest-options)"
     required: false
     default: ""
   use-hass-branch:
@@ -51,6 +59,8 @@ runs:
     - ${{ inputs.extra-black-options }}
     - ${{ inputs.extra-mypy-options }}
     - ${{ inputs.use-hass-branch }}
+    - ${{ inputs.use-pytest }}
+    - ${{ inputs.extra-pytest-options }}
 branding:
   icon: "terminal"
   color: "blue"

@@ -11,6 +11,8 @@
 # $7 - extra-black-options
 # $8 - extra-mypy-options
 # $9 - use-hass-branch
+# $10 - use-pytest
+# $11 - extra-pytest-options
 
 if [ "$9" = true ]; then
   pip3 install git+https://github.com/home-assistant/core.git@${1} --no-cache-dir
@@ -61,6 +63,26 @@ if [ "$5" = true ]; then
         echo "mypy ok"
     else
         echo "mypy error"
+        exit $exit_code
+    fi
+
+fi
+
+if [ "${10}" = true ]; then
+
+    if [ -f "requirements_test.txt" ]; then
+        pip3 install -r requirements_test.txt
+    fi
+
+    echo Running: pytest -p no:warnings --strict -o log_cli=true ${11}
+
+    pytest -p no:warnings --strict -o log_cli=true ${11}
+    exit_code=$?
+
+    if [ "$exit_code" = "0" ]; then
+        echo "Pytest ok"
+    else
+        echo "Pytest error"
         exit $exit_code
     fi
 

@@ -34,9 +34,11 @@ steps:
       use-pylint: false
       use-black: false
       use-mypy: false
+      use-pytest: false
       extra-pylint-options: ""
       extra-black-options: ""
       extra-mypy-options: ""
+      extra-pytest-options: ""
       use-hass-branch: false
 ```
 
@@ -52,4 +54,6 @@ pylint --disable=duplicate-code --disable=too-many-instance-attributes $(extra-p
 black --check $(extra-black-options) $(path)
 
 mypy --show-error-codes --show-error-context --ignore-missing-imports --pretty --show-error-codes $(extra-mypy-options) $(path)
+
+pytest -p no:warnings --strict -o log_cli=true $(extra-pytest-options)
 ```
