@@ -8,12 +8,14 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
     build-essential \
     libssl-dev \
     libffi-dev \
-    python-dev
+    python-dev \
+    ffmpeg
 
 RUN pip3 install pylint \
     black \
     mypy \
-    pytest
+    pytest \
+    httpx[http2]
 
 COPY entrypoint.sh /entrypoint.sh
 
